@@ -1,6 +1,10 @@
-# hi54roger-oss.github.io
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
 
-123123123
+  cout << "676767";
+  return 0;
+}
 
 
 
