@@ -19,6 +19,7 @@
             margin: 0;
             display: flex;
         }
+        /* 側邊導覽列 */
         .sidebar {
             width: 260px;
             height: 100vh;
@@ -52,22 +53,38 @@
             color: var(--accent-color);
             border-left: 4px solid var(--accent-color);
         }
+        /* 主要內容區 */
         .main-content { margin-left: 260px; padding: 40px; max-width: 800px; width: 100%; box-sizing: border-box; }
         .section { display: none; }
         .section.active { display: block; animation: fadeIn 0.3s ease; }
         h1, h3 { color: #fff; border-bottom: 1px solid var(--border-color); padding-bottom: 8px; }
         .card { background-color: var(--panel-color); border: 1px solid var(--border-color); border-radius: 6px; padding: 20px; margin-bottom: 20px; }
         .tag { background-color: #282e38; color: var(--accent-color); padding: 4px 8px; border-radius: 4px; font-size: 0.8rem; margin-right: 5px; font-family: monospace; }
-        .btn { display: inline-block; background-color: #21262d; border: 1px solid var(--border-color); color: var(--accent-color); padding: 6px 12px; border-radius: 6px; text-decoration: none; font-size: 0.85rem; margin-top: 10px; }
-        .btn:hover { background-color: #30363d; }
+        /* 綠色加強版按鈕，吸引教授點擊 */
+        .btn-link {
+            display: inline-block;
+            background-color: #238636;
+            color: #fff;
+            padding: 12px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: bold;
+            margin-top: 15px;
+            transition: 0.2s;
+            border: none;
+            cursor: pointer;
+        }
+        .btn-link:hover { background-color: #2ea043; }
         pre { background-color: #1f242c; padding: 15px; border-radius: 6px; overflow-x: auto; border: 1px solid var(--border-color); }
         code { font-family: monospace; color: #ff7b72; }
+        img { max-width: 100%; border-radius: 6px; margin: 15px 0; border: 1px solid var(--border-color); }
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
     </style>
 </head>
 <body>
 
-    <!-- 左側導覽列 -->
+    <!-- 側邊欄 -->
     <div class="sidebar">
         <div class="profile">
             <h2>hi54roger-oss</h2>
@@ -75,34 +92,30 @@
         </div>
         <ul class="nav-links">
             <li><a href="#" class="active" onclick="showSection('about')">👨‍💻 個人簡介與 APCS</a></li>
-            <li><a href="#" onclick="showSection('project1')">🚀 核心作品一：C++ 基礎</a></li>
-            <li><a href="#" onclick="showSection('project2')">🤖 核心作品二：[請修改名稱]</a></li>
+            <li><a href="#" onclick="showSection('project1')">🚀 核心作品一：C++ 實作</a></li>
+            <li><a href="#" onclick="showSection('project2')">🔗 核心作品二：外部專案連結</a></li>
         </ul>
     </div>
 
-    <!-- 右側內容區 -->
+    <!-- 內容區 -->
     <div class="main-content">
         <!-- 個人簡介與 APCS -->
         <div id="about" class="section active">
             <h1>個人簡介 & 能力檢定</h1>
             <div class="card">
-                <h3>📊 APCS 成績</h3>
-                <p>觀念題：4 級分 / 實作題：3 級分(2026</p>
-            </div>
-            <div class="card">
-                <h3>🏫 學習歷程簡述</h3>
-                <p>在這裡寫幾句你想對資工系教授說的話，例如你的刷題經驗或自學歷程。</p>
+                <h3>📊 APCS 大學程式設計先修檢測</h3>
+                <p>觀念題：[請填寫] 級分 / 實作題：[請填寫] 級分</p>
+                <!-- 📸 如果有 APCS 成績單照片，可以把上傳到 GitHub 的圖片檔名填在 src -->
+                <!-- <img src="apcs_score.png" alt="APCS成績單"> -->
             </div>
         </div>
-<!-- 直接複製這行，貼在作品二的下一行 -->
-<li><a href="#" onclick="showSection('project3')">🤖 核心作品三：[新作品名稱]</a></li>
 
-        <!-- 作品一 -->
+        <!-- 作品一：內嵌 C++ 程式碼 -->
         <div id="project1" class="section">
-            <h1>核心作品一：C++ 基礎實作</h1>
+            <h1>核心作品一：C++ 基礎環境與實作</h1>
             <div class="card">
-                <p><span class="tag">C++</span><span class="tag">Basic</span></p>
-                <p><strong>1. 開發動機：</strong> 練習環境測試與基礎輸出控制。</p>
+                <p><span class="tag">C++</span><span class="tag">Algorithm</span></p>
+                <p><strong>1. 開發動機：</strong> 練習基礎程式輸出與語法邏輯測試。</p>
                 <p><strong>2. 原始程式碼展示：</strong></p>
                 <pre><code>#include&lt;bits/stdc++.h&gt;
 using namespace std;
@@ -113,13 +126,21 @@ int main(){
             </div>
         </div>
 
-        <!-- 作品二 -->
+        <!-- 作品二：直接連到外部網址（如 Google 簡報、HackMD、YouTube） -->
         <div id="project2" class="section">
-            <h1>核心作品二：[請修改為你第二個作品的名稱]</h1>
+            <h1>核心作品二：精選備審專案</h1>
             <div class="card">
-                <p><span class="tag">Python</span><span class="tag">Algorithm</span></p>
-                <p><strong>1. 作品簡介：</strong> 寫下你高中做過的另一個專題、自主學習成果、或寫過的小程式。</p>
-                <p><strong>2. 技術難題：</strong> 遇到了什麼 Bug？後來怎麼解決的？</p>
+                <p><span class="tag">Python</span><span class="tag">Google Drive</span><span class="tag">Demo</span></p>
+                <p><strong>1. 作品簡介：</strong> 這是我的自主學習成果/專題報告。為了提供最完整的系統操作畫面與詳細研究報告，我已將所有資料整理在外部平台上。</p>
+                <p><strong>2. 技術難題：</strong> 描述你在做這個專案時學到的系統架構，或者克服過最難的 Bug。</p>
+                
+                <p><strong>3. 完整報告與展示：</strong></p>
+                <p>👇 點擊下方綠色按鈕，即可直接在新的分頁開啟我的完整作品（請務必確認目標網址的分享權限已開啟）：</p>
+                
+                <!-- 🎯 只要把下面 href="..." 裡面的網址換成你的 Google 雲端/HackMD 連結即可 -->
+                <a href="https://hackmd.io" target="_blank" class="btn-link">
+                    📁 點擊打開完整作品報告 (Google 簡報 / HackMD) ➔
+                </a>
             </div>
         </div>
     </div>
@@ -132,17 +153,5 @@ int main(){
             event.target.classList.add('active');
         }
     </script>
-    <!-- 直接複製這整段，貼在作品二結束標籤的下一行 -->
-<div id="project3" class="section">
-    <h1>核心作品三：[新作品名稱]</h1>
-    <div class="card">
-        <p><span class="tag">Java / JavaScript</span><span class="tag">New Tech</span></p>
-        <p><strong>1. 開發動機：</strong> 寫下你做這個新作品的原因。</p>
-        <p><strong>2. 系統架構與功能：</strong> 簡述這個程式有哪些功能、用了什麼資料結構。</p>
-        <p><strong>3. 亮點或困難：</strong> 描述你在開發過程中學到什麼新技術，或者克服了什麼錯誤。</p>
-        <a href="#" class="btn">查看 GitHub 原始碼 ➔</a>
-    </div>
-</div>
-
 </body>
 </html>
